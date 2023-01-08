@@ -1,0 +1,21 @@
+{
+    "name": "molbal/ai-phpdoc",
+    "description": "Writes missing PHPDoc comments using GPT-3.",
+    "type": "library",
+    "license": "AGPL-3.0-or-later",
+    "autoload": {
+        "psr-4": {
+            "Molbal\\AiPhpdoc\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "molbal",
+            "email": "molbal@outlook.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "symfony/console": "^6.2"
+    }
+}
