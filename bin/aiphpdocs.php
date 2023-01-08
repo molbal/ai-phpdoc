@@ -1,13 +1,13 @@
-#!/usr/bin/env php
 <?php
 require __DIR__.'/../vendor/autoload.php';
 
+use Molbal\AiPhpdoc\InsertMissingDocs;
 use Symfony\Component\Console\Application;
 
 $application = new Application();
 
 
-$application->add(new GenerateAdminCommand());
+$application->add(new InsertMissingDocs());
 // ... register commands
 
 $application->run();
