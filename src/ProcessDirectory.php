@@ -14,7 +14,7 @@ class ProcessDirectory extends Command
     protected function configure()
     {
         $this
-            ->setName('directory')
+            ->setName('dir')
             ->setDescription('Adds missing PHPDoc blocks to functions in a directory')
             ->addArgument('directory', InputArgument::OPTIONAL, 'The directory to iterate through. Defaults to `.`')
             ->addOption('recursive', 'r', InputOption::VALUE_NONE,'Iterate recusrively? Defaults to no');
@@ -30,7 +30,11 @@ class ProcessDirectory extends Command
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $dirPath = $input->getArgument('file');
+        $dirPath = '.';
+        try {
+            $input->getArgument('directory');
+        }
+        catch (\Exception $ignored) {}
         $recursive = $input->getOption('recursive') !== false;
         return (new ProcessFacade())->processDirectory($dirPath, $recursive, $output);
     }

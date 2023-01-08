@@ -19,7 +19,7 @@ class FileParser
         $functions = [];
         $matches = [];
 
-        preg_match_all('/^\s*(\/\*\*.*?\*\/)?\s*(?:(?:public|private|protected)\s+)?(?:static\s+)?function\s+(\w+)\s*\(([^)]*)\)\s*(?:\:([^\s]+))?\s*\{(.*?)^\s*\}/ms', $code, $matches, PREG_SET_ORDER);
+        preg_match_all('/^\s*(\/\*\*.*?\*\/)?\s*(?:(?:public|private|protected)\s+)?(?:static\s+)?function\s+(\w+)\s*\(([^)]*)\)\s*(?:\:\s([^\s]+))?\s*\{(.*?)^\s*\}/ms', $code, $matches, PREG_SET_ORDER);
         foreach ($matches as $match) {
             $functions[] = [
                 'name' => $match[2],
