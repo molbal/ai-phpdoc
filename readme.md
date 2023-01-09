@@ -1,5 +1,17 @@
+<p align="center">
+    <img src="https://raw.githubusercontent.com/molbal/ai-phpdocs/main/art/code-example.png" width="600" alt="Code example">
+    <p align="center">
+        <a href="https://packagist.org/packages/molbal/ai-phpdocs"><img alt="Total Downloads" src="https://img.shields.io/packagist/dt/molbal/ai-phpdocs"></a>
+        <a href="https://packagist.org/packages/molbal/ai-phpdocs"><img alt="Latest Version" src="https://img.shields.io/packagist/v/molbal/ai-phpdocs"></a>
+        <a href="https://packagist.org/packages/molbal/ai-phpdocs"><img alt="License" src="https://img.shields.io/github/license/molbal/ai-phpdocs"></a>
+    </p>
+</p>
+
+------
+
 # AI PHPDocs
 
+<img src="https://raw.githubusercontent.com/molbal/ai-phpdocs/main/art/icon.png" width="40" alt="Cute icon. You like it!">
 AI PHPDocs is a tool that uses GPT-3 to automatically add missing PHPDoc comments to your PHP code.
 
 ## Prerequisites
