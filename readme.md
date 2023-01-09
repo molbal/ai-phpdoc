@@ -9,9 +9,9 @@
 
 ------
 
-# AI PHPDocs
+# <img src="https://raw.githubusercontent.com/molbal/ai-phpdoc/main/art/icon.png" width="40" alt="Cute icon. You like it!"> AI PHPDocs
 
-<img src="https://raw.githubusercontent.com/molbal/ai-phpdoc/main/art/icon.png" width="40" alt="Cute icon. You like it!">
+
 AI PHPDocs is a tool that uses GPT-3 to automatically add missing PHPDoc comments to your PHP code.
 
 ## Prerequisites
