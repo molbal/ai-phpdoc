@@ -2,6 +2,9 @@
 
 namespace Molbal\AiPhpdoc;
 
+use Exception;
+use FilesystemIterator;
+use RecursiveDirectoryIterator;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Output\OutputInterface;
 
@@ -14,26 +17,25 @@ class ProcessFacade
      */
     public function processFile(mixed $filePath, OutputInterface $output): int
     {
+        $output->writeln('<comment>Processing file: '.$filePath.'</comment>');
         try {
-            $functions = FileParser::getFunctionsFromFile($filePath);
+            $functions = (new FileParser)->getFunctionsFromFile($filePath);
             $errors = 0;
             $completions = 0;
             foreach ($functions as $function) {
                 if (!$function['phpdoc']) {
-                    $output->writeln('Found function without docblock: ' . $function['name'] . '');
+                    $output->writeln('Found function without docblock: ' . $function['name']);
                     try {
                         $docs = DocumentationGenerator::createDocBlock($function['body']);
-                        if (FileWriter::writeDocBlock($filePath, $function['body'], $docs)) {
+                        if ((new FileWriter)->writeDocBlock($filePath, $function['body'], $docs)) {
                             $output->writeln('<info>Wrote docblock for ' . $function['name'] . '</info>');
                             $completions++;
                         } else {
-                            if (FileWriter::writeDocBlock($filePath, $function['body'], $docs)) {
-                                $output->writeln('<error>Generated docblock for ' . $function['name'] . ', but could not write it to the file.</error>');
-                                $output->writeln($docs);
-                                $errors++;
-                            }
+                            $output->writeln('<error>Generated docblock for function <' . $function['name'] . '>, but could not write it to the file.</error>');
+                            $output->writeln($docs);
+                            $errors++;
                         }
-                    } catch (\Exception $error) {
+                    } catch (Exception $error) {
                         $output->writeln('<error>Could not generate docblock for ' . $function['name'] . ': ' . $error->getMessage() . '</error>');
                     }
                 }
@@ -44,11 +46,11 @@ class ProcessFacade
             }
 
             if ($completions > 0) {
-                $output->writeln('Finished processing ' . $filePath . ' with ' . $completions . ' docblocks written and ' . $errors . ' errors.');
+                $output->writeln('Finished processing ' . $filePath . ' with ' . $completions . ' PHPDoc blocks written and ' . $errors . ' errors.');
             }
 
             return $errors > 0 ? Command::FAILURE : Command::SUCCESS;
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             $output->writeln('Error: ' . $e->getMessage());
             return Command::FAILURE;
         }
@@ -64,7 +66,7 @@ class ProcessFacade
             return Command::INVALID;
         }
 
-        $iterator = new \RecursiveDirectoryIterator($directoryPath, \RecursiveDirectoryIterator::SKIP_DOTS);
+        $iterator = new RecursiveDirectoryIterator($directoryPath, FilesystemIterator::SKIP_DOTS);
 
 
         foreach ($iterator as $file) {
@@ -73,7 +75,7 @@ class ProcessFacade
             }
 
             if ($file->isDir() && $recursive ) {
-                $this->processDirectory($file->getPathname(), $recursive, $output);
+                $this->processDirectory($file->getPathname(), true, $output);
             }
         }
 

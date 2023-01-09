@@ -32,7 +32,7 @@ class ProcessDirectory extends Command
     {
         $dirPath = '.';
         try {
-            $input->getArgument('directory');
+            $dirPath = $input->getArgument('directory');
         }
         catch (\Exception $ignored) {}
         $recursive = $input->getOption('recursive') !== false;

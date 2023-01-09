@@ -4,6 +4,13 @@ namespace Molbal\AiPhpdoc;
 
 class DocumentationGenerator
 {
+    /**
+     * createDocBlock
+     *
+     * @param string $function The function to generate the doc block for
+     * 
+     * @return string The generated doc block
+     */
     public static function createDocBlock(string $function): string {
         $key = getenv('OPENAI_KEY');
 
