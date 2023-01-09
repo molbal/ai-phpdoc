@@ -30,7 +30,7 @@ aiphpdocs file  /path/to/file.php
 To add missing PHPDoc comments to a directory of files, use the following command. By default it iterates through the current directory for all files, but does not go into subdirectories:
 
 ```shell
-aiphpdocs directory
+aiphpdocs dir
 ```
 
 
