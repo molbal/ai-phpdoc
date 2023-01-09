@@ -10,7 +10,9 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class ProcessDirectory extends Command
 {
-
+    /**
+     * Configures the command
+     */
     protected function configure()
     {
         $this

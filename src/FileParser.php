@@ -26,7 +26,7 @@ class FileParser
             $functions[] = [
                 'name' => $match[2][0],
                 'phpdoc' => self::getPhpdocFromString($match[0][0]),
-                'body' => $match[0][0].PHP_EOL.$this->getFunctionBody($code,$match[4][1]),
+                'body' => $match[0][0].PHP_EOL.$this->getFunctionBody($code,$match[0][1]),
             ];
         }
         return $functions;
@@ -45,6 +45,7 @@ class FileParser
         return $matches[0] ?? null;
     }
 
+
     /**
      * Extracts a list of functions from a PHP file.
      *
@@ -62,6 +63,8 @@ class FileParser
         $code = file_get_contents($filePath);
         return self::getFunctionsFromString($code);
     }
+
+
     /**
      * Retrieve the body of a function from a given string.
      *
@@ -70,7 +73,6 @@ class FileParser
      *
      * @return string The body of the function.
      */
-
     private function getFunctionBody(string $str, int $startIndex): string {
         $openBraceCount = 0;
         $closeBraceCount = 0;

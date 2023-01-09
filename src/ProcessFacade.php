@@ -11,9 +11,12 @@ use Symfony\Component\Console\Output\OutputInterface;
 class ProcessFacade
 {
     /**
-     * @param mixed $filePath
-     * @param OutputInterface $output
-     * @return int
+     * Process a file and generate PHPDoc blocks for functions without them
+     * 
+     * @param mixed $filePath The path to the file to process
+     * @param OutputInterface $output The output interface to write messages to
+     * 
+     * @return int The status of the command (success or failure)
      */
     public function processFile(mixed $filePath, OutputInterface $output): int
     {
@@ -55,6 +58,15 @@ class ProcessFacade
             return Command::FAILURE;
         }
     }
+    /**
+     * Process a directory and its contents.
+     *
+     * @param string $directoryPath The path of the directory to process
+     * @param bool $recursive Whether or not to process subdirectories
+     * @param OutputInterface $output The output interface to write messages to
+     *
+     * @return int The status of the operation (Command::SUCCESS or Command::FAILURE)
+     */
 
     public function processDirectory(string $directoryPath, bool $recursive, OutputInterface $output): int
     {
