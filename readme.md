@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="https://raw.githubusercontent.com/molbal/ai-phpdoc/main/art/code-example.png" width="600" alt="Code example">
+    <img src="https://raw.githubusercontent.com/molbal/ai-phpdoc/main/art/code-example.png" width="800" alt="Code example">
     <p align="center">
         <a href="https://packagist.org/packages/molbal/ai-phpdoc"><img alt="Total Downloads" src="https://img.shields.io/packagist/dt/molbal/ai-phpdoc"></a>
         <a href="https://packagist.org/packages/molbal/ai-phpdoc"><img alt="Latest Version" src="https://img.shields.io/packagist/v/molbal/ai-phpdoc"></a>
