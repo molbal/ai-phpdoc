@@ -38,6 +38,12 @@ class ProcessDirectory extends Command
         }
         catch (\Exception $ignored) {}
         $recursive = $input->getOption('recursive') !== false;
-        return (new ProcessFacade())->processDirectory($dirPath, $recursive, $output);
+        if ($recursive) {
+            $output->writeln('<comment>Recursive flag is set.</comment>');
+        }
+        $r = (new ProcessFacade())->processDirectory($dirPath, $recursive, $output);
+        $output->writeln('Finished processing all directories.');
+
+        return  $r;
     }
 }

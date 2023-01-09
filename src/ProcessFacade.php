@@ -20,7 +20,7 @@ class ProcessFacade
      */
     public function processFile(mixed $filePath, OutputInterface $output): int
     {
-        $output->writeln('<comment>Processing file: '.$filePath.'</comment>');
+        $output->writeln('Processing file: '.$filePath);
         try {
             $functions = (new FileParser)->getFunctionsFromFile($filePath);
             $errors = 0;

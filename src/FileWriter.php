@@ -71,6 +71,6 @@ class FileWriter
             return '';
         }
         $startPos += 3;
-        return PHP_EOL.'/**'.PHP_EOL.trim(substr($str, $startPos, $endPos - $startPos)).'*/';
+        return PHP_EOL.'/**'.PHP_EOL.trim(substr($str, $startPos, $endPos - $startPos)).PHP_EOL.'*/';
     }
 }
