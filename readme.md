@@ -18,11 +18,13 @@ Demo video: https://youtu.be/bu-fkRyLQaI
 
 ## Prerequisites
 
-Before using AI PHPDocs, you will need to have an OpenAI API key set as an environment variable. 
+This package uses the OpenAI API. Before using AI PHPDocs, you will need to have an OpenAI API key set as an environment variable. 
 
 ```shell
 export OPENAI_KEY=...
 ```
+
+You can get an API key at https://beta.openai.com/account/api-keys 
 
 ## Installation
 
