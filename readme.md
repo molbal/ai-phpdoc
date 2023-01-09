@@ -14,6 +14,8 @@
 
 AI PHPDocs is a tool that uses GPT-3 to automatically add missing PHPDoc comments to your PHP code.
 
+Demo video: https://youtu.be/bu-fkRyLQaI
+
 ## Prerequisites
 
 Before using AI PHPDocs, you will need to have an OpenAI API key set as an environment variable. 
