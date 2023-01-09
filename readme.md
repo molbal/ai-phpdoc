@@ -16,6 +16,8 @@ AI PHPDocs is a tool that uses GPT-3 to automatically add missing PHPDoc comment
 
 Demo video: https://youtu.be/bu-fkRyLQaI
 
+Example output: https://github.com/molbal/abyss-tracker/commit/e4013c7533aa7ca855176ddce9f3563a011cdc0f
+
 ## Prerequisites
 
 This package uses the OpenAI API. Before using AI PHPDocs, you will need to have an OpenAI API key set as an environment variable. 
