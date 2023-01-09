@@ -32,11 +32,10 @@ class ProcessDirectory extends Command
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $dirPath = '.';
-        try {
-            $dirPath = $input->getArgument('directory');
+        $dirPath = $input->getArgument('directory');
+        if (!$dirPath) {
+            $dirPath = '.';
         }
-        catch (\Exception $ignored) {}
         $recursive = $input->getOption('recursive') !== false;
         if ($recursive) {
             $output->writeln('<comment>Recursive flag is set.</comment>');

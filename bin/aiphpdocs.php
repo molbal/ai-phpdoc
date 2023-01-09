@@ -5,7 +5,7 @@ use Molbal\AiPhpdoc\ProcessDirectory;
 use Molbal\AiPhpdoc\ProcessFile;
 use Symfony\Component\Console\Application;
 
-$application = new Application('AI-PHPDocs by molbal', '1.0.5');
+$application = new Application('AI-PHPDocs by molbal', '1.0.6');
 
 $application->add(new ProcessFile());
 $application->add(new ProcessDirectory());
