@@ -34,7 +34,7 @@ To install AI PHPDocs, run the following command:
 
 
 ```shell
-composer global require molbal/ai-phpdocs
+composer global require molbal/ai-phpdoc
 ```
 
 ## Usage
@@ -57,7 +57,7 @@ You may set the `--recursive` flag, or `-r` for short for it to go into subdirec
 If you pass another variable (regardless of the recursive flag) it will treat it as another directory to sweep through instead of the working directory.
 
 ```shell
-aiphpdocs directory -r /somewhere/else
+aiphpdocs dir -r /somewhere/else
 ```
 
 ## License
