@@ -16,9 +16,11 @@ class DocumentationGenerator
 
         $openai = \OpenAI::client($key);
 
+        $prompt = "Read the following PHP function: " . $function . ". Write the PHPDoc block in English for the method named " . $function . ", remove any unnecessary code and comments, including if it's an empty constructor. Do not add any additional comments except for the required PHPDocs, unless you detect obvious errors.";
+
         $completion = $openai->completions()->create([
-            'model' => 'text-davinci-003',
-            'prompt' => 'Read the following PHP function: """ '.$function.' """ PHPDoc block for the function:',
+            'model' => 'gpt-3.5-turbo-instruct',
+            'prompt' => $prompt,
             'max_tokens' => 1024,
             'stop' => ['"""'],
             'temperature' => 0.3
@@ -36,6 +38,4 @@ class DocumentationGenerator
             throw new \RuntimeException('An error occurred while trying to get the doc block: ' . $e->getMessage());
         }
     }
-
-
 }
