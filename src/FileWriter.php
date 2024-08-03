@@ -21,7 +21,7 @@ class FileWriter
         $body = rtrim(explode('{', $body, 2)[0]);
         $docblock = $this->indentDocBlock(trim($docblock), $this->getLeadingWhitespace($body));
         $originalContents = file_get_contents($file);
-        $newContents = str_replace($body, $docblock . PHP_EOL . $body, $originalContents, $c);
+        $newContents = str_replace($body, $docblock . PHP_EOL. ltrim($body, PHP_EOL), $originalContents, $c);
         file_put_contents($file, $newContents);
         return  $c == 1;
     }
