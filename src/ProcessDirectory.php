@@ -19,7 +19,7 @@ class ProcessDirectory extends Command
             ->setName('dir')
             ->setDescription('Adds missing PHPDoc blocks to functions in a directory')
             ->addArgument('directory', InputArgument::OPTIONAL, 'The directory to iterate through. Defaults to `.`')
-            ->addOption('recursive', 'r', InputOption::VALUE_NONE,'Iterate recusrively? Defaults to no');
+            ->addOption('recursive', 'r', InputOption::VALUE_NONE,'Iterate recursively? Defaults to no');
     }
 
 
